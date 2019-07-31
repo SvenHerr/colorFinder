@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Example Name </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<input id="input" type="text"></input><br>
+<label id="input1">-</label><br>
+<button id="btn">Los!</button>
+
+<script>
+
+    let inputValue = "xx";
+    let farbenArray = [];
+    let output = "";
+
+    let farbe = "";
+    let start = 0;
+    let end = 0;
+    let i = 0;
+    let count = 0;
+    let countIndexArray = 0;
+
+    $("#btn").click(function () 
+    {
+        inputValue = document.getElementById("input").value;
+        if (inputValue == null) return;
+        //alert("start");
+        alert(inputValue.length);
+        do {
+            if (inputValue.charAt(i) == '#') {
+                start = i;
+                //alert("anfang1");
+                //alert("var i = "+ i);
+                do {
+                    if (inputValue.charAt(i) == '}' || inputValue.charAt(i) == ';' || inputValue.charAt(i) == '!' || inputValue.charAt(i) == ' ') {
+                        System.out.println("hier");
+                        end = i;
+                        break;
+                    }
+                    else 
+                    {
+                        end = i + 10;
+                    }
+                    i++;
+                }
+                while (i < 10);
+                //alert("mitte");
+                count++;
+                farbe = inputValue.substring(start, end);
+                farbenArray[countIndexArray] = farbe;//bw.write(farbe);
+                //alert("farbe:" + farbe);
+                countIndexArray++;
+            }
+            i++;
+        }
+        while (i < inputValue.length);
+        alert("Array length = "+ farbenArray.length);
+        
+        alert("output arRAY 0: "+ farbenArray[0]);  
+        
+        
+        alert("ende");  
+       
+        gibArrayAus();
+    });
+
+    function gibArrayAus()
+    {
+        for(var k = 0; k < farbenArray.length; k++)
+        {
+            output = farbenArray[k] + "\n" + output; 
+        };
+        alert("output" + output);
+    };
+    
+</script>
+
+
+
+</html>
